@@ -7,3 +7,4 @@ build/
 # Compiled Dynamic libraries
 
 # Compiled Static libraries
+.DS_Store

@@ -18,6 +18,7 @@
 #include <aku/AKU-audiosampler.h>
 #include <lua-headers/moai_lua.h>
 #include "GlfwHost.h"
+#include <CoreFoundation/CFBundle.h>
 
 namespace GLFWInputDeviceID {
     enum {
@@ -133,11 +134,31 @@ int GlfwHost( int argc, const char * argv[] )
     
     // Load lua script from command-line argument.
     // TODO: Hard code loading main.lua.
-    for (int i = 1; i < argc; ++i) {
-        const char* arg = argv[i];
-        AKURunScript(arg);
-    }
+       
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    CFURLRef imageURL = CFBundleCopyResourceURL(mainBundle, CFSTR("main"), CFSTR("lua"), NULL);
     
+    if (imageURL) {
+        CFStringRef imagePath = CFURLCopyFileSystemPath(imageURL, kCFURLPOSIXPathStyle);
+        CFStringEncoding encodingMethod = CFStringGetSystemEncoding();
+        
+        const char *path = CFStringGetCStringPtr(imagePath, encodingMethod);
+        
+        AKURunScript ( path );
+
+    } else if (argc < 2) {
+    
+        AKURunScript("main.lua");
+    
+    } else {
+    
+        for (int i = 1; i < argc; ++i) {
+            const char* arg = argv[i];
+            AKURunScript(arg);
+        }
+        
+    }
+        
     GlfwEventLoop();
     
     return 0;
