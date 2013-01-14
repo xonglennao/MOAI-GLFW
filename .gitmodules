@@ -1,0 +1,3 @@
+[submodule "3rdparty/moai-dev"]
+	path = 3rdparty/moai-dev
+	url = git://github.com/moai/moai-dev.git
