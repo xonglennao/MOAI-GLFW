@@ -19,6 +19,7 @@
 #include <lua-headers/moai_lua.h>
 #include "GlfwHost.h"
 #include <CoreFoundation/CFBundle.h>
+#include "MOAIHostMgr.h"
 
 namespace GLFWInputDeviceID {
     enum {
@@ -131,6 +132,9 @@ int GlfwHost( int argc, const char * argv[] )
 {
     atexit(_cleanup);
     RefreshAKUContext();
+    
+    REGISTER_LUA_CLASS ( MOAIHostMgr )
+	printf("Registered MOAIHostMgr\n");
     
     // Load lua script from command-line argument.
     
