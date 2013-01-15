@@ -31,9 +31,9 @@
 		CD90777B16A425F30038CB0B /* libSystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED8ED15E071160013F6C2 /* libSystem.dylib */; };
 		CD90777C16A425F30038CB0B /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED8EB15E0710C0013F6C2 /* libssl.dylib */; };
 		CD90777D16A425F30038CB0B /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED8E915E070F50013F6C2 /* libcrypto.dylib */; };
-		CD90778316A4E29A0038CB0B /* Turk.icns in Resources */ = {isa = PBXBuildFile; fileRef = CD90778216A4E29A0038CB0B /* Turk.icns */; };
 		CD9077A516A520980038CB0B /* MOAIHostMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9077A316A520980038CB0B /* MOAIHostMgr.cpp */; };
 		CD9077A616A520980038CB0B /* MOAIHostMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9077A316A520980038CB0B /* MOAIHostMgr.cpp */; };
+		CD9077A816A530000038CB0B /* Turk.icns in Resources */ = {isa = PBXBuildFile; fileRef = CD9077A716A530000038CB0B /* Turk.icns */; };
 		E68ED8D615E06DAF0013F6C2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED88C15E06C290013F6C2 /* Cocoa.framework */; };
 		E68ED8DD15E06E240013F6C2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED8DB15E06E180013F6C2 /* OpenGL.framework */; };
 		E68ED8EA15E070F50013F6C2 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E68ED8E915E070F50013F6C2 /* libcrypto.dylib */; };
@@ -274,9 +274,9 @@
 		CD90774D16A423250038CB0B /* Turk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Turk-Info.plist"; sourceTree = "<group>"; };
 		CD90775316A423250038CB0B /* Turk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turk-Prefix.pch"; sourceTree = "<group>"; };
 		CD90777216A425790038CB0B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
-		CD90778216A4E29A0038CB0B /* Turk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Turk.icns; sourceTree = "<group>"; };
 		CD9077A316A520980038CB0B /* MOAIHostMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MOAIHostMgr.cpp; sourceTree = "<group>"; };
 		CD9077A416A520980038CB0B /* MOAIHostMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIHostMgr.h; sourceTree = "<group>"; };
+		CD9077A716A530000038CB0B /* Turk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Turk.icns; sourceTree = "<group>"; };
 		E68ED88C15E06C290013F6C2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E68ED8C815E06D110013F6C2 /* MOAI-GLFW */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "MOAI-GLFW"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E68ED8DB15E06E180013F6C2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
@@ -384,6 +384,7 @@
 		CD90774C16A423250038CB0B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD9077A716A530000038CB0B /* Turk.icns */,
 				CD90774D16A423250038CB0B /* Turk-Info.plist */,
 				CD90775316A423250038CB0B /* Turk-Prefix.pch */,
 			);
@@ -393,7 +394,6 @@
 		E68ED87B15E06C0F0013F6C2 = {
 			isa = PBXGroup;
 			children = (
-				CD90778216A4E29A0038CB0B /* Turk.icns */,
 				CD90777216A425790038CB0B /* OpenGL.framework */,
 				CD90774B16A423250038CB0B /* Turk */,
 				E68ED88B15E06C290013F6C2 /* Frameworks */,
@@ -664,7 +664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD90778316A4E29A0038CB0B /* Turk.icns in Resources */,
+				CD9077A816A530000038CB0B /* Turk.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,10 +758,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -786,10 +783,7 @@
 					"\"$(SRCROOT)/3rdparty/moai-dev/3rdparty/lua-5.1.3/src\"",
 				);
 				INFOPLIST_FILE = "Turk/Turk-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/usr/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -810,15 +804,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turk/Turk-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -831,10 +823,7 @@
 					"\"$(SRCROOT)/3rdparty/moai-dev/3rdparty/lua-5.1.3/src\"",
 				);
 				INFOPLIST_FILE = "Turk/Turk-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/SDKs/MacOSX10.7.sdk/usr/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -872,6 +861,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -897,6 +887,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"$(SRCROOT)/3rdparty/moai-dev/src\"/**",
+					"\"$(SRCROOT)/3rdparty/moai-dev/3rdparty/lua-5.1.3/src\"",
 				);
 				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -919,7 +910,9 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -928,6 +921,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"$(SRCROOT)/3rdparty/moai-dev/src\"/**",
+					"\"$(SRCROOT)/3rdparty/moai-dev/3rdparty/lua-5.1.3/src\"",
 				);
 				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
