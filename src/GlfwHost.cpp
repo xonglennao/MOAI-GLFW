@@ -133,16 +133,18 @@ int GlfwHost( int argc, const char * argv[] )
     RefreshAKUContext();
     
     // Load lua script from command-line argument.
-    // TODO: Hard code loading main.lua.
-       
-    CFBundleRef mainBundle = CFBundleGetMainBundle();
-    CFURLRef imageURL = CFBundleCopyResourceURL(mainBundle, CFSTR("main"), CFSTR("lua"), NULL);
     
-    if (imageURL) {
-        CFStringRef imagePath = CFURLCopyFileSystemPath(imageURL, kCFURLPOSIXPathStyle);
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    
+    CFDictionaryRef infoDict = CFBundleGetInfoDictionary(mainBundle);
+    CFTypeRef scriptName = CFDictionaryGetValue(infoDict, CFSTR("MTMainScript"));
+    CFURLRef scriptURL = CFBundleCopyResourceURL(mainBundle, (CFStringRef)scriptName, CFSTR("lua"), NULL);
+    
+    if (scriptURL) {
+        CFStringRef scriptPath = CFURLCopyFileSystemPath(scriptURL, kCFURLPOSIXPathStyle);
         CFStringEncoding encodingMethod = CFStringGetSystemEncoding();
         
-        const char *path = CFStringGetCStringPtr(imagePath, encodingMethod);
+        const char *path = CFStringGetCStringPtr(scriptPath, encodingMethod);
         
         AKURunScript ( path );
 
