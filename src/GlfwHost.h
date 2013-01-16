@@ -23,6 +23,7 @@ static void GLFWCALL onKeyboardChar    ( int unicode, int action);
 static void GLFWCALL onMouseButton     ( int button, int action );
 static void GLFWCALL onMouseMove       ( int x, int y );
 static void GLFWCALL onMouseWheel      ( int pos );
+static void GLFWCALL onWindowSize      ( int width, int height );
 
 void	_AKUEnterFullscreenFunc ();
 void	_AKUExitFullscreenFunc	();

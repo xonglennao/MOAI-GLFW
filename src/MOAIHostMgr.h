@@ -24,8 +24,6 @@ private:
 	static int		_getTime			( lua_State* L );
 	static int		_getVideoModes		( lua_State* L );
 	static int		_getDesktopVideoMode ( lua_State* L );
-	static int		_setOnWindowChangedSizeCallback( lua_State* L );
-	//static int		_setOnWindowCloseCalback( lua_State* L );
     static int		_setWindowPos		( lua_State* L );
     static int		_minimiseWindow		( lua_State* L );
     static int		_restoreWindow		( lua_State* L );
@@ -41,8 +39,6 @@ public:
 					MOAIHostMgr			();
 					~MOAIHostMgr		();
 	void			RegisterLuaClass	( MOAILuaState& state );
-	MOAILuaRef		GetOnWindowSizeChangedLuaFunction ();
-	MOAILuaRef		GetOnWindowClosedLuaFunction ();
 };
 
 #endif

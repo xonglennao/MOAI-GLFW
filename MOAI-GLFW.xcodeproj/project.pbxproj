@@ -497,7 +497,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = io.Mechanica;
+				ORGANIZATIONNAME = Mechanica;
 			};
 			buildConfigurationList = E68ED88015E06C0F0013F6C2 /* Build configuration list for PBXProject "MOAI-GLFW" */;
 			compatibilityVersion = "Xcode 3.2";
