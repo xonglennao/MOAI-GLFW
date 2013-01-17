@@ -141,6 +141,19 @@ void GLFWCALL onWindowSize( int width, int height )
     AKUSetViewSize( width, height );
 }
 
+int GLFWCALL onWindowClose()
+{
+    int result = GL_TRUE;
+    
+	if ( MOAIHostMgr::Get().GetOnWindowClosedLuaFunction() ) {
+		MOAILuaStateHandle state = MOAIHostMgr::Get().GetOnWindowClosedLuaFunction().GetSelf ();
+		state.DebugCall ( 0, 1 );
+        result = state.GetValue < int >( 0, GL_FALSE );
+	}
+    
+    return result;
+}
+
 static void _cleanup()
 {
     AKUFinalize();
@@ -218,6 +231,7 @@ void LoadAKUModules()
 void SetupInputCallbacks()
 {
     glfwSetWindowSizeCallback(onWindowSize);
+    glfwSetWindowCloseCallback(onWindowClose);
     glfwSetKeyCallback(onKeyboardKey);
     glfwSetMouseButtonCallback(onMouseButton);
     glfwSetMousePosCallback(onMouseMove);
