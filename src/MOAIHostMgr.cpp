@@ -113,9 +113,10 @@ int MOAIHostMgr::_disable( lua_State* L )
 }
 
 int MOAIHostMgr::_setOnWindowCloseCalback ( lua_State* L ) {
-	MOAI_LUA_SETUP ( MOAIHostMgr, "U" )
-	
-	self->mOnWindowClosed.SetStrongRef ( state, 2 );
+	MOAILuaState state ( L );
+	if ( state.CheckParams ( 1 , "F") ) {
+		self->mOnWindowClosed.SetStrongRef ( state, 2 );
+	}
 	
 	return 0;
 }
